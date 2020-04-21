@@ -20,10 +20,16 @@
   <script src="js/jquery-3.5.0.min.js"></script>
   <script src="js/swiper.js"></script>
   <style>
-    *{margin:0;border:none;padding:0;}
-    .wrap{height:2000px;background:rgba(0,0,0,0.5);}
-    .doctop{position:fixed;left:0;top:0;width:100%;height:80px;background:rgba(255,0,0,0.5);}
-    .menu{position:fixed;left:50%;bottom:50px;transform:translateX(-50%);width:300px;height:60px;border-radius:30px;background:white;}
+    *{margin:0;border:none;padding:0;box-sizing:border-box;}
+    .clearfix::after{
+      content:'';
+      display:block;
+      clear:both;
+    }
+    .left{float:left;}
+    .right{float:right;}
+    .wrap{position: relative;}
+    header{position: fixed;left:50%;top:0;transform:translateX(-50%);width:100%;max-width:768px;margin:0 auto;border:1px solid #eee;border-top:none;padding:10px 20px;}
   </style>
   <script>
     $(function(){
@@ -32,14 +38,19 @@
   </script>
 </head>
 <body>
+  
   <div class="wrap">
-
-  </div>
-  <div class="doctop">
-
-  </div>
-  <div class="menu">
-
+    <header class="clearfix">
+      <div class="left">
+        <h1>SELECTIVE</h1>
+        <p>beta</p>
+      </div>
+      <div class="right">
+        로그인
+      </div>
+    </header>
+    <section></section>
+    <footer></footer>
   </div>
 </body>
 </html>
