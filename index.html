@@ -15,7 +15,9 @@
   <link rel="shortcut icon" href="images/favicon.png">
 
   <title>SELECTIVE</title>
-  
+  <!-- swiper -->
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <script src="js/swiper.min.js"></script>
   <!-- jQuery -->
   <script src="js/jquery-3.5.0.min.js"></script>
   <!-- font-awesome -->
@@ -153,7 +155,26 @@
       font-size:24px;
       font-weight:normal;
     }
-    
+    .swiper-slide{
+      display:flex;
+      flex-flow:column;
+      justify-content: space-around;
+      align-items:center;
+      height:80px;
+    }    
+    .swiper-slide>div{
+      width:50px;
+      height:50px;
+      border-radius:25px;
+      overflow:hidden;
+    }
+    .swiper-slide>div>img{
+      width:100%;
+    }
+    .swiper-slide>p{
+      font-size:12px;
+      text-align:center;
+    }
 
     /* 푸터 */
     footer{
@@ -203,7 +224,10 @@
         $('.login').hide();
       })
      
-
+      var mySwiper = new Swiper ('.swiper-container', {
+        // Optional parameters
+        slidesPerView:10        
+      })
     })
   </script>
 </head>
@@ -245,6 +269,130 @@
       <article class="sec_top">
         <h2>SELECTIVE CREATOR</h2>
         <h3>추천 인기 크리에이터</h3>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img00.png" alt="img00">
+              </div>
+              <p>pam7461</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img01.png" alt="img01">
+              </div>
+              <p>pam7461</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img02.png" alt="img02">
+              </div>
+              <p>wishksfd</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img03.png" alt="img03">
+              </div>
+              <p>eog_lov</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img04.png" alt="img04">
+              </div>
+              <p>eisk74</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img05.png" alt="img05">
+              </div>
+              <p>125-s</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img06.png" alt="img06">
+              </div>
+              <p>love18</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img07.png" alt="img07">
+              </div>
+              <p>ilick</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img08.png" alt="img08">
+              </div>
+              <p>click_me</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img09.png" alt="img09">
+              </div>
+              <p>jon_sm</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img10.png" alt="img10">
+              </div>
+              <p>pariNo1</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img11.png" alt="img11">
+              </div>
+              <p>seoulL1</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img12.png" alt="img12">
+              </div>
+              <p>tipani</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img13.png" alt="img13">
+              </div>
+              <p>sungjin</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img14.png" alt="img14">
+              </div>
+              <p>james</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img15.png" alt="img15">
+              </div>
+              <p>bread</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img16.png" alt="img16">
+              </div>
+              <p>parking</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img17.png" alt="img17">
+              </div>
+              <p>bround</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img18.png" alt="img18">
+              </div>
+              <p>house1</p>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <img src="images/img19.png" alt="img19">
+              </div>
+              <p>no1</p>
+            </div>
+          </div>
+        </div>
       </article>
       <article class="sec_content"></article>
       <article class="sec_bottom"></article>
