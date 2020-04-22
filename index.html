@@ -15,9 +15,12 @@
   <link rel="shortcut icon" href="images/favicon.png">
 
   <title>SELECTIVE</title>
-  <!-- font-awesome -->
-  <link rel="stylesheet" href="css/all.css">
+ 
+  <!-- jQuery -->
   <script src="js/jquery-3.5.0.min.js"></script>
+  <!-- font-awesome -->
+  <script src="js/all.js"></script>
+  <!-- swiper-slider -->
   <script src="js/swiper.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=korean');
@@ -42,7 +45,7 @@
     .main_color{color:#f4361e;}
     .wrap{position: relative;}
     
-    header,.login{
+    header,.login,section,footer{
       position: fixed;
       left:50%;
       top:0;
@@ -52,6 +55,10 @@
       border:1px solid #eee;
       border-top:none;
       padding:10px 20px;
+    }
+    header{
+      z-index:1;
+      background:white;
     }
     .login{
       height:100%;
@@ -125,9 +132,31 @@
       text-align:center;
       cursor:pointer;
     }
+
+    section{
+      position: absolute;
+      margin-top:53px;
+    }
+
+    footer{
+      top:initial;
+      bottom:50px;
+      width:300px;
+      border:none;
+      padding:20px;
+      border-radius:50px;
+      box-shadow:10px 10px 10px #eee,0px 0px 3px #eee;
+      display:flex;
+      justify-content: space-around;
+      background:white;
+    }
+    
+    
   </style>
   <script>
     $(function(){
+      var id;
+      var pass;
       $('.login').hide();
       $('#btn_login').click(function(){
         $('.login').fadeIn(100);
@@ -138,6 +167,23 @@
       $('header>div:first-child').click(function(){
         location.href='index.html';
       });
+      $('#login_btn').click(function(){
+        id=$('#user_id').val();
+        pass=$('#user_pass').val();
+        console.log(id);
+        console.log(pass);
+        if(id.indexOf(' ')>=0 || id.indexOf('@')<0 || id==''){
+          alert('아이디는 반드시 이메일 형식으로 입력해 주세요');
+        }else if(pass=='' || pass[0]=='1'){
+          alert('패스워드는 반드시 문자로 시작되도록 입력해 주세요');
+        }else{
+          alert(id+'님 환영합니다.');
+        }
+        
+      })
+      $('#can_btn,#join_btn').click(function(){
+        $('.login').hide();
+      })
     })
   </script>
 </head>
@@ -152,13 +198,13 @@
           <!-- <i class="fas fa-times"></i> -->
         </li>
         <li class="login_content clearfix">
-            <input class="input_box" type="text" placeholder="아이디">
+            <input id="user_id" class="input_box" type="text" placeholder="아이디">
             <br>
-            <input class="input_box" type="password" placeholder="패스워드">
+            <input id="user_pass" class="input_box" type="password" placeholder="패스워드">
             <br>
-            <input class="input_btn left" type="button" value="로그인">
-            <input class="input_btn left" type="button" value="취소">
-            <input class="input_btn left" type="button" value="회원가입">
+            <input id="login_btn" class="input_btn left" type="button" value="로그인">
+            <input id="can_btn" class="input_btn left" type="button" value="취소">
+            <input id="join_btn" class="input_btn left" type="button" value="회원가입">
         </li>
       </ul>
     </div>  
@@ -171,8 +217,15 @@
         <span id="btn_login">로그인</span>
       </div>
     </header>
-    <section></section>
-    <footer></footer>
+    <section>
+      
+    </section>
+    <footer>
+      <a href="#" onclick="return false;"><i class="fas fa-home fa-2x"></i></a>
+      <a href="#" onclick="return false;"><i class="fas fa-search fa-2x"></i></a>
+      <a href="#" onclick="return false;"><i class="fas fa-bars fa-2x"></i></a>
+      <a href="#" onclick="return false;"><i class="fas fa-user fa-2x"></i></a>
+    </footer>
   </div>
 </body>
 </html>
