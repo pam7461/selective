@@ -104,7 +104,7 @@
       background:#f4361e;
       cursor: pointer;
     }
-    .input_btn:last-child{
+    .input_btn:nth-child(2){
       margin-right:0;
     }
     /* 헤더 */
@@ -123,8 +123,8 @@
     header>div:first-child>p{
       font-size:12px;
     }
-    header>div:last-child{position:relative;}
-    header>div:last-child>span{
+    header>div:nth-child(2){position:relative;}
+    header>div:nth-child(2)>span{
       position:absolute;
       right:0px;
       top:2px;
@@ -143,6 +143,10 @@
       margin-top:53px;
       padding:20px;
     }
+    article{
+      margin-bottom:30px;
+    }
+
     .sec_top>h2{
       font-family: 'Roboto', sans-serif;
       text-align:center;
@@ -155,25 +159,63 @@
       font-size:24px;
       font-weight:normal;
     }
-    .swiper-slide{
+    .swiper01 .swiper-slide{
       display:flex;
       flex-flow:column;
       justify-content: space-around;
       align-items:center;
       height:80px;
     }    
-    .swiper-slide>div{
+    .swiper01 .swiper-slide>div{
       width:50px;
       height:50px;
       border-radius:25px;
       overflow:hidden;
     }
-    .swiper-slide>div>img{
+    .swiper01 .swiper-slide>div>img{
       width:100%;
     }
-    .swiper-slide>p{
+    .swiper01 .swiper-slide>p{
       font-size:12px;
       text-align:center;
+    }
+    .content_top{
+      margin-bottom:10px;
+    }
+    .content_top>div:first-child{
+      width:40px;
+      height:40px;
+      margin-right:10px;
+      border-radius:20px;
+      overflow:hidden;
+    }
+    .content_top>div:first-child>img{
+      width:100%;
+    }
+    .content_top>div:nth-child(2){
+      margin-top:-2px;
+    }
+    .content_top>div:nth-child(2)>h4{
+      font-weight:normal;
+      color:#333;
+    }
+    .content_top>div:nth-child(2) svg{
+      margin:0 6px;
+    }
+    .content_top>div:nth-child(2) path{
+      color:#f4361e;
+    }
+    .content_top>div:nth-child(2) span{
+      font-size:14px;
+      color:#f4361e;
+    }
+    .content_top>div:nth-child(2)>p{
+      font-size:12px;
+      color:#bbb;
+    }
+
+    .swiper02 .swiper-slide img{
+      width:100%;
     }
 
     /* 푸터 */
@@ -224,9 +266,16 @@
         $('.login').hide();
       })
      
-      var mySwiper = new Swiper ('.swiper-container', {
+      var mySwiper = new Swiper ('.swiper01', {
         // Optional parameters
         slidesPerView:10        
+      })
+      var mySwiper = new Swiper ('.swiper02', {
+        // Optional parameters
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+        },
       })
     })
   </script>
@@ -269,7 +318,7 @@
       <article class="sec_top">
         <h2>SELECTIVE CREATOR</h2>
         <h3>추천 인기 크리에이터</h3>
-        <div class="swiper-container">
+        <div class="swiper-container swiper01">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div>
@@ -394,7 +443,45 @@
           </div>
         </div>
       </article>
-      <article class="sec_content"></article>
+      <article class="sec_content">
+        <div class="content" id="content01">
+          <div class="content_top clearfix">
+            <div class="left"><img src="images/img00.png" alt="이미지1"></div>
+            <div class="left">
+              <h4>pam7461<i class="fas fa-smile"></i><span>팬하기</span></h4>
+              <p>4시간전</p>
+            </div>
+            <div class="right">
+              <a href="#">
+                <i class="fas fa-ellipsis-v"></i>
+              </a>
+            </div>
+          </div>
+          <div class="content_img">
+            <!-- Slider main container -->
+            <div class="swiper-container swiper02">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide">
+                    <img src="images/img00.png" alt="이미지0">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/img01.png" alt="이미지1">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/img02.png" alt="이미지2">
+                  </div>
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="content_bottom">
+
+          </div>
+        </div>
+      </article>
       <article class="sec_bottom"></article>
     </section>
 
