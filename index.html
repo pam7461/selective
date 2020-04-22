@@ -15,17 +15,17 @@
   <link rel="shortcut icon" href="images/favicon.png">
 
   <title>SELECTIVE</title>
- 
+  
   <!-- jQuery -->
   <script src="js/jquery-3.5.0.min.js"></script>
   <!-- font-awesome -->
   <script src="js/all.js"></script>
-  <!-- swiper-slider -->
-  <script src="js/swiper.js"></script>
+
   <style>
     @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=korean');
     /* font-family: 'Roboto', sans-serif; */
     /* font-family: 'Noto Sans KR', sans-serif; */
+    /* 초기화 */
     *{
       margin:0;
       border:none;
@@ -44,7 +44,7 @@
     .right{float:right;}
     .main_color{color:#f4361e;}
     .wrap{position: relative;}
-    
+    /* 공통 */
     header,.login,section,footer{
       position: fixed;
       left:50%;
@@ -56,10 +56,7 @@
       border-top:none;
       padding:10px 20px;
     }
-    header{
-      z-index:1;
-      background:white;
-    }
+    /* 로그인 */
     .login{
       height:100%;
       border:none;
@@ -67,6 +64,7 @@
       background:rgba(0,0,0,0.3);
       z-index:2;
     }
+    
     .login_box{
       width:260px;
       height:190px;
@@ -107,7 +105,11 @@
     .input_btn:last-child{
       margin-right:0;
     }
-    
+    /* 헤더 */
+    header{
+      z-index:1;
+      background:white;
+    }
     header>div:first-child{display:flex;}
     header>div:first-child>h1{
       font-family: 'Roboto', sans-serif;
@@ -133,12 +135,27 @@
       text-align:center;
       cursor:pointer;
     }
-
+    /* 섹션 */
     section{
       position: absolute;
       margin-top:53px;
+      padding:20px;
     }
+    .sec_top>h2{
+      font-family: 'Roboto', sans-serif;
+      text-align:center;
+      font-size:14px;
+      color:#bbb;
+    }
+    .sec_top>h3{
+      text-align:center;
+      color:#333;
+      font-size:24px;
+      font-weight:normal;
+    }
+    
 
+    /* 푸터 */
     footer{
       top:initial;
       bottom:50px;
@@ -185,12 +202,15 @@
       $('#can_btn,#join_btn').click(function(){
         $('.login').hide();
       })
+     
+
     })
   </script>
 </head>
 <body>
   
   <div class="wrap">
+    <!-- 로그인 -->
     <div class="login">
       <ul class="login_box">
         <li class="login_tit clearfix">
@@ -209,6 +229,7 @@
         </li>
       </ul>
     </div>  
+    <!-- 헤더 -->
     <header class="clearfix">
       <div class="left">
         <h1 class="main_color">SELECTIVE</h1>
@@ -218,9 +239,18 @@
         <span id="btn_login">로그인</span>
       </div>
     </header>
+
+    <!-- 섹션 -->
     <section>
-      
+      <article class="sec_top">
+        <h2>SELECTIVE CREATOR</h2>
+        <h3>추천 인기 크리에이터</h3>
+      </article>
+      <article class="sec_content"></article>
+      <article class="sec_bottom"></article>
     </section>
+
+    <!-- 푸터 -->
     <footer>
       <a href="#" onclick="return false;"><i class="fas fa-home fa-2x"></i></a>
       <a href="#" onclick="return false;"><i class="fas fa-search fa-2x"></i></a>
