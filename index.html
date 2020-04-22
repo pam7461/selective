@@ -31,6 +31,7 @@
       font-family: 'Noto Sans KR';
       color:#666;
     }
+    ul,li,ol{list-style:none;}
     .clearfix::after{
       content:'';
       display:block;
@@ -40,24 +41,72 @@
     .right{float:right;}
     .main_color{color:#f4361e;}
     .wrap{position: relative;}
-    .wrap>.login{
-      position:fixed;
+    
+    header,.login{
+      position: fixed;
       left:50%;
-      top:100px;
+      top:0;
       transform:translateX(-50%);
-      width:300px;
-      height:300px;
+      width:100%;
+      max-width:768px;
       border:1px solid #eee;
-      padding:20px;
+      border-top:none;
+      padding:10px 20px;
+    }
+    .login{
+      height:100%;
+      border:none;
+      padding:0;
+      background:rgba(0,0,0,0.3);
+    }
+    .login_box{
+      width:260px;
+      height:190px;
+      margin-top:80px;
+      margin-left:480px;
+      border-radius:10px;
       background:white;
     }
-    header{position: fixed;left:50%;top:0;transform:translateX(-50%);width:100%;max-width:768px;margin:0 auto;border:1px solid #eee;border-top:none;padding:10px 20px;}
+    .login_tit{
+      border-bottom:1px solid #eee;
+      padding:10px;
+      padding-bottom:4px;
+    }
+    .login_content{
+      padding:10px;
+    }
+    #close_btn{
+      margin-top:-15px;
+      font-weight:bold;
+      font-size:30px;
+      cursor:pointer;
+    }
+    .input_box{
+      width:100%;
+      margin-bottom:10px;
+      border:1px solid #eee;
+      padding:6px 10px;
+    }
+    .input_btn{
+      width:30%;
+      margin-right:5%;
+      padding:6px 0;
+      font-size:16px;
+      color:white;
+      background:#f4361e;
+      cursor: pointer;
+    }
+    .input_btn:last-child{
+      margin-right:0;
+    }
+    
     header>div:first-child{display:flex;}
     header>div:first-child>h1{
       font-family: 'Roboto', sans-serif;
       font-weight:500;
       font-size:26px;
       margin-right:6px;
+      cursor:pointer;
     }
     header>div:first-child>p{
       font-size:12px;
@@ -81,7 +130,13 @@
     $(function(){
       $('.login').hide();
       $('#btn_login').click(function(){
-        $('.login').show();
+        $('.login').fadeIn(100);
+      });
+      $('#close_btn').click(function(){
+        $('.login').fadeOut(100);
+      })
+      $('header>div:first-child').click(function(){
+        location.href='index.html';
       });
     })
   </script>
@@ -90,8 +145,23 @@
   
   <div class="wrap">
     <div class="login">
-
-    </div>
+      <ul class="login_box">
+        <li class="login_tit clearfix">
+          <p class="left">로그인</p>
+          <p class="right" id="close_btn">&times</p>
+          <!-- <i class="fas fa-times"></i> -->
+        </li>
+        <li class="login_content clearfix">
+            <input class="input_box" type="text" placeholder="아이디">
+            <br>
+            <input class="input_box" type="password" placeholder="패스워드">
+            <br>
+            <input class="input_btn left" type="button" value="로그인">
+            <input class="input_btn left" type="button" value="취소">
+            <input class="input_btn left" type="button" value="회원가입">
+        </li>
+      </ul>
+    </div>  
     <header class="clearfix">
       <div class="left">
         <h1 class="main_color">SELECTIVE</h1>
