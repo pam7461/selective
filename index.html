@@ -20,7 +20,17 @@
   <script src="js/jquery-3.5.0.min.js"></script>
   <script src="js/swiper.js"></script>
   <style>
-    *{margin:0;border:none;padding:0;box-sizing:border-box;}
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=korean');
+    /* font-family: 'Roboto', sans-serif; */
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    *{
+      margin:0;
+      border:none;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Noto Sans KR';
+      color:#666;
+    }
     .clearfix::after{
       content:'';
       display:block;
@@ -28,25 +38,67 @@
     }
     .left{float:left;}
     .right{float:right;}
+    .main_color{color:#f4361e;}
     .wrap{position: relative;}
+    .wrap>.login{
+      position:fixed;
+      left:50%;
+      top:100px;
+      transform:translateX(-50%);
+      width:300px;
+      height:300px;
+      border:1px solid #eee;
+      padding:20px;
+      background:white;
+    }
     header{position: fixed;left:50%;top:0;transform:translateX(-50%);width:100%;max-width:768px;margin:0 auto;border:1px solid #eee;border-top:none;padding:10px 20px;}
+    header>div:first-child{display:flex;}
+    header>div:first-child>h1{
+      font-family: 'Roboto', sans-serif;
+      font-weight:500;
+      font-size:26px;
+      margin-right:6px;
+    }
+    header>div:first-child>p{
+      font-size:12px;
+    }
+    header>div:last-child{position:relative;}
+    header>div:last-child>span{
+      position:absolute;
+      right:0px;
+      top:2px;
+      width:60px;
+      border:1px solid #eee;
+      border-radius:4px;
+      padding:4px;
+      color:#333;
+      font-size:12px;
+      text-align:center;
+      cursor:pointer;
+    }
   </style>
   <script>
     $(function(){
-      
+      $('.login').hide();
+      $('#btn_login').click(function(){
+        $('.login').show();
+      });
     })
   </script>
 </head>
 <body>
   
   <div class="wrap">
+    <div class="login">
+
+    </div>
     <header class="clearfix">
       <div class="left">
-        <h1>SELECTIVE</h1>
-        <p>beta</p>
+        <h1 class="main_color">SELECTIVE</h1>
+        <p><i>beta</i></p>
       </div>
       <div class="right">
-        로그인
+        <span id="btn_login">로그인</span>
       </div>
     </header>
     <section></section>
